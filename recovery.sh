@@ -7,11 +7,15 @@ cd /home/minerstat
 ls
 git clone http://github.com/coinscrow/minerstat-linux
 cd /home/minerstat/minerstat-linux
+npm install colors sleep pump request express sphp progress ascii-text-generator fkill needle parse-spawn-args readline-sync
 chmod -R 777 *
 echo "Copy config from MSOS (NTFS) Partition"
 cp /media/storage/config.js /home/minerstat/minerstat-linux
+echo ""
 cat config.js
 echo ""
-echo "Recovery is done! You can start minerstat with: minerstat start"
+echo ""
+echo "Recovery is done!" 
+echo "You can start mining with: mstart"
 echo ""
 echo "*-*-*-- MINERSTAT.COM--*-*-*"
