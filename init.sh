@@ -43,12 +43,10 @@ fi
 
 if [ $RESPONSE = "RESTART" ]; then
 cd /home/minerstat/minerstat-linux
-killall node
-sleep 3
 node stop
 sleep 3
 echo "RESTARTING .."
-sudo screen -A -m -d -S minerstat-console sudo sh /home/minerstat/minerstat-linux/start.sh
+sudo sh /home/minerstat/minerstat-linux/start.sh
 echo ""
 fi
 
