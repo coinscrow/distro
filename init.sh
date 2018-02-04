@@ -47,7 +47,7 @@ killall node
 sleep 2
 node stop
 sleep 1
-screen -A -m -d -S minerstat-console "cd /home/minerstat/minerstat-linux; node start"
+screen -A -m -d -S minerstat-console sudo sh /home/minerstat/minerstat-linux/start.sh
 fi
 
 sleep 59
