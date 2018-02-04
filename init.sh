@@ -6,7 +6,8 @@ do
 echo "-*- BACKGROUND SERVICE -*-"
     
 #HOSTNAME
-HOSTNAME="$(hostname)"
+TOKEN="$(cat /media/storage/config.js | grep 'global.accesskey' | sed 's/global.accesskey =//g' | sed 's/;//g')"
+WORKER="$(cat /media/storage/config.js | grep 'global.worker' | sed 's/global.worker =//g' | sed 's/;//g')"
 
 #FREE SPACE in Megabyte - SDA1
 STR1="$(df -hm | grep sda1 | awk '{print $4}')" 
@@ -20,16 +21,19 @@ STR3="$(ip route get 1 | awk '{print $NF;exit}')"
 #REMOTE IP ADDRESS
 STR4="$(wget -qO- http://ipecho.net/plain ; echo)"
 
+echo ""
+echo "-*- $TOKEN $WORKER -*-"
 echo "Free Space: $STR1"
 echo "CPU Usage: $STR2"
 echo "Local IP: $STR3"
 echo "Remote IP: $STR4"
+echo ""
 
 #SEND INFO
-wget -qO- "https://minerstat.com/getstatus.php?hostname=$HOSTNAME&space=$STR1&cpu=$STR2&localip=$STR3&remoteip=$STR4" ; echo
+wget -qO- "https://minerstat.com/getstatus.php?token=$TOKEN&worker=$WORKER&space=$STR1&cpu=$STR2&localip=$STR3&remoteip=$STR4" ; echo
 
 echo "-*- MINERSTAT LISTENER -*-"
-RESPONSE="$(wget -qO- 'https://minerstat.com/listener.php?hostname=$HOSTNAME' ; echo)"
+RESPONSE="$(wget -qO- 'https://minerstat.com/listener.php?token=$TOKEN&worker=$WORKER' ; echo)"
 
 echo "RESPONSE: $RESPONSE"
 
