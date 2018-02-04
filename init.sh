@@ -42,12 +42,11 @@ sudo shutdown -h now
 fi
 
 if [ $RESPONSE = "RESTART" ]; then
-cd /home/minerstat/minerstat-linux
 killall node
 sleep 2
 node stop
 sleep 1
-screen -A -m -d -S minerstat-console node start
+screen -A -m -d -S minerstat-console "cd /home/minerstat/minerstat-linux; node start"
 fi
 
 sleep 59
