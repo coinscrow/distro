@@ -42,6 +42,7 @@ sudo shutdown -h now
 fi
 
 if [ $RESPONSE = "RESTART" ]; then
+cd /home/minerstat/minerstat-linux
 killall node
 sleep 2
 node stop
