@@ -33,5 +33,22 @@ RESPONSE="$(wget -qO- 'https://minerstat.com/listener.php?hostname=$HOSTNAME' ; 
 
 echo "RESPONSE: $RESPONSE"
 
+if [ "$RESPONSE" == "REBOOT" ]; then
+sudo reboot -f
+fi
+
+if [ "$RESPONSE" == "SHUTDOWN" ]; then
+sudo shutdown -h now
+fi
+
+if [ "$RESPONSE" == "RESTART" ]; then
+cd /home/minerstat/minerstat-linux
+killall node
+sleep 2
+node stop
+sleep 1
+screen -A -m -d -S minerstat-console node start
+fi
+
 sleep 59
 done
