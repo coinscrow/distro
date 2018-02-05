@@ -45,14 +45,5 @@ if [ $RESPONSE = "SHUTDOWN" ]; then
 sudo shutdown -h now
 fi
 
-if [ $RESPONSE = "RESTART" ]; then
-cd /home/minerstat/minerstat-linux
-node stop
-sleep 3
-echo "RESTARTING .."
-screen -A -m -d -S minerstat-console sudo sh /home/minerstat/minerstat-linux/start.sh
-echo ""
-fi
-
-sleep 59
+sleep 40
 done
