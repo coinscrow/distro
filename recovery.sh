@@ -16,6 +16,6 @@ cat config.js
 echo ""
 echo ""
 echo "Recovery is done!" 
-echo "You can start mining with: mstart"
+sudo reboot -f
 echo ""
 echo "*-*-*-- MINERSTAT.COM--*-*-*"
