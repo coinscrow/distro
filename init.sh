@@ -50,7 +50,9 @@ cd /home/minerstat/minerstat-linux
 node stop		
 sleep 3		
 echo "RESTARTING .."
-su minerstat -c "screen -A -m -d -S minerstat-console sudo sh /home/minerstat/minerstat-linux/start.sh		"
+sudo -u minerstat -s
+sleep 1
+screen -A -m -d -S minerstat-console sudo sh /home/minerstat/minerstat-linux/start.sh
 echo ""		
 fi
 
