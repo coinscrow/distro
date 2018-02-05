@@ -45,5 +45,19 @@ if [ $RESPONSE = "SHUTDOWN" ]; then
 sudo shutdown -h now
 fi
 
+if [ $RESPONSE = "RESTART" ]; then	
+cd /home/minerstat/minerstat-linux		
+node stop		
+sleep 3		
+echo "RESTARTING .."
+su -l minerstat
+screen -A -m -d -S minerstat-console sudo sh /home/minerstat/minerstat-linux/start.sh		
+echo ""		
+fi
+
+if [ $RESPONSE = "null" ]; then
+echo "No remote command pending..";
+fi
+
 sleep 40
 done
