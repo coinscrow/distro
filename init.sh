@@ -33,7 +33,7 @@ echo ""
 wget -qO- "https://minerstat.com/getstatus.php?token=$TOKEN&worker=$WORKER&space=$STR1&cpu=$STR2&localip=$STR3&remoteip=$STR4" ; echo
 
 echo "-*- MINERSTAT LISTENER -*-"
-RESPONSE="$(wget -qO- 'https://minerstat.com/listener.php?token=$TOKEN&worker=$WORKER' ; echo)"
+RESPONSE="$(wget -qO- "https://minerstat.com/listener.php?token=$TOKEN&worker=$WORKER" ; echo)"
 
 echo "RESPONSE: $RESPONSE"
 
