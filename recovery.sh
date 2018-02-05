@@ -2,6 +2,7 @@
 echo "*-*-*-- MINERSTAT OS RECOVERY --*-*-*"
 sudo killall node
 sudo screen -S minerstat-console -X quit
+sudo screen -S listener -X quit
 sudo rm -rf /home/minerstat/minerstat-linux
 cd /home/minerstat
 ls
