@@ -21,6 +21,9 @@ STR3="$(ip route get 1 | awk '{print $NF;exit}')"
 #REMOTE IP ADDRESS
 STR4="$(wget -qO- http://ipecho.net/plain ; echo)"
 
+#FREE MEMORY
+STR5="$(free -m | grep 'Mem' | awk '{print $4}')"
+
 echo ""
 echo "-*- $TOKEN $WORKER -*-"
 echo "Free Space: $STR1"
@@ -30,7 +33,7 @@ echo "Remote IP: $STR4"
 echo ""
 
 #SEND INFO
-wget -qO- "https://minerstat.com/getstatus.php?token=$TOKEN&worker=$WORKER&space=$STR1&cpu=$STR2&localip=$STR3&remoteip=$STR4" ; echo
+wget -qO- "https://minerstat.com/getstatus.php?token=$TOKEN&worker=$WORKER&space=$STR1&cpu=$STR2&localip=$STR3&remoteip=$STR4&freemem=$STR5" ; echo
 
 echo "-*- MINERSTAT LISTENER -*-"
 RESPONSE="$(wget -qO- "https://minerstat.com/listener.php?token=$TOKEN&worker=$WORKER" ; echo)"
