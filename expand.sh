@@ -11,6 +11,6 @@ echo w # Write changes
 ) | sudo fdisk /dev/sda | grep "Created a new partition"
 echo ""
 sudo resize2fs /dev/sda1
-""
+echo ""
 STR1="$(df -hm | grep sda1 | awk '{print $4}')" 
 echo "Free Space on the Disk: $STR1"
