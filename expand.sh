@@ -1,3 +1,4 @@
+echo "-*- Expanding /dev/sda Partition -*-"
 (
 echo d # Delete partition 
 echo 1 # Delete first
@@ -7,4 +8,4 @@ echo 1 # 1 Partition
 echo   # First sector (Accept default: 1)
 echo   # Last sector (Accept default: varies)
 echo w # Write changes
-) | sudo fdisk /dev/sda
+) | sudo fdisk /dev/sda | grep "Created a new partition"
