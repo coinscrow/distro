@@ -13,4 +13,4 @@ echo ""
 sudo resize2fs /dev/sda1
 echo ""
 STR1="$(df -hm | grep sda1 | awk '{print $4}')" 
-echo "Free Space on the Disk: $STR1"
+echo "Free Space on the Disk: $STR1 MB"
